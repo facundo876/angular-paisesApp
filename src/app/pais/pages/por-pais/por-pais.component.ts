@@ -10,15 +10,16 @@ import { Country } from '../../interfaces/pais.interface';
 })
 export class PorPaisComponent{
 
-  public termino: string = "Hola mundo!"
+  public termino: string = ""
   public hayError: boolean = false;
   public paises: Country[] = [];
 
   constructor( private paisService: PaisService ) { }
 
-  buscar(){
+  buscar( termino: string ){
     this.hayError = false;
 
+    this.termino = termino;
     this.paisService.buscarPais( this.termino )
     .subscribe( paises => {
       console.log( paises );
@@ -27,5 +28,9 @@ export class PorPaisComponent{
       this.hayError = true;
       this.paises = []
     })
+  }
+
+  sugerencia(termino:string ){
+    console.log("sigerencia:" + termino)
   }
 }
