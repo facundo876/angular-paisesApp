@@ -17,7 +17,7 @@
         No se encotro un resultado con {{ termino }}
     </div>
     
-    <div class="row">
+    <div *ngIf="paises.length > 0" class="row">
         <div class="col">
             <app-pais-tabla [paises]="paises" ></app-pais-tabla>
         </div>
